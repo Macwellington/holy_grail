@@ -1,51 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Positioning Layout</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holy Grail Layout</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<header>
+<div class="container">
+
+  <header>
     <p>
-        This header is default static positioning, so it stays in normal page flow where the browser puts it. Top/left/right/bottom won’t move it because it isn’t positioned.
+      The header uses the default positioning behavior, which is position: static. Because it is static, it stays in the normal document flow and is placed entirely by the CSS Grid layout rather than by offsets such as top or left. The reason the header appears at the top and stretches across the full width is because the grid-template-areas defines the header area across all three columns. Offset properties do not apply here, since static positioning ignores top, right, bottom, and left.
     </p>
-</header>
+  </header>
 
-<nav>
+  <nav>
     <p>
-        This nav is position: fixed, so it’s locked to the viewport and doesn’t scroll. The top and left values control exactly where it sits on the screen.
+      The navigation section is positioned using CSS Grid with grid-area: nav, which places it in the left column of the second row. This element does not use relative, absolute, or fixed positioning, so it remains in normal flow. Its exact position is determined by the grid structure and column widths rather than by offsets. Because it is not positioned, properties like top or left would not move it even if they were added.
     </p>
-</nav>
+  </nav>
 
-<div class="articles">
-    <article>
-        <p>
-            This article is position: relative, so it stays in the layout but can be nudged. The top value pushes it down from its normal spot.
-        </p>
-    </article>
+  <main>
+    <p>
+      The main content area is positioned using grid-area: content, which places it in the center column of the grid. This column uses the fr unit, allowing it to expand and take up remaining space between the two side columns. The main element does not rely on the position property, so offsets such as top or bottom are unnecessary. Its placement and size are controlled entirely by the grid layout.
+    </p>
+  </main>
 
-    <article>
-        <p>
-            This one is also relative, so it can be shifted without messing up the overall flow. The offset just moves it visually from where it would normally be.
-        </p>
-    </article>
+  <aside>
+    <p>
+      The aside element is positioned using grid-area: side, which places it in the right column of the second row. This works because CSS Grid defines a fixed-width column for the sidebar, ensuring it stays aligned next to the main content. Since the aside is not removed from normal flow, it aligns cleanly with the other grid items. Offset properties are not used because the grid already determines its location.
+    </p>
+  </aside>
+
+  <footer>
+    <p>
+      The footer is positioned using grid-area: footer, which places it across all three columns in the final row of the grid. Its position at the bottom of the page is achieved by the grid layout combined with the container’s height of 100vh, not by bottom offsets or fixed positioning. Because the footer remains in normal flow, it scrolls naturally with the page content.
+    </p>
+  </footer>
+
 </div>
-
-<aside>
-    <p>
-        This aside is position: absolute, so it’s taken out of normal flow and placed using offsets. Since there’s no positioned parent, it’s positioned relative to the viewport.
-    </p>
-</aside>
-
-<footer>
-    <p>
-        This footer is fixed with bottom: 0, so it stays stuck to the bottom of the viewport. It stays visible even when you scroll.
-    </p>
-</footer>
 
 </body>
 </html>
