@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Layout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+    <p>
+        This header is default static positioning, so it stays in normal page flow where the browser puts it. Top/left/right/bottom won’t move it because it isn’t positioned.
+    </p>
+</header>
+
+<nav>
+    <p>
+        This nav is position: fixed, so it’s locked to the viewport and doesn’t scroll. The top and left values control exactly where it sits on the screen.
+    </p>
+</nav>
+
+<div class="articles">
+    <article>
+        <p>
+            This article is position: relative, so it stays in the layout but can be nudged. The top value pushes it down from its normal spot.
+        </p>
+    </article>
+
+    <article>
+        <p>
+            This one is also relative, so it can be shifted without messing up the overall flow. The offset just moves it visually from where it would normally be.
+        </p>
+    </article>
+</div>
+
+<aside>
+    <p>
+        This aside is position: absolute, so it’s taken out of normal flow and placed using offsets. Since there’s no positioned parent, it’s positioned relative to the viewport.
+    </p>
+</aside>
+
+<footer>
+    <p>
+        This footer is fixed with bottom: 0, so it stays stuck to the bottom of the viewport. It stays visible even when you scroll.
+    </p>
+</footer>
+
+</body>
+</html>
